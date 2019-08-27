@@ -1,0 +1,33 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <body>
+        <div class="container">
+            <h2>Actualizar Libro</h2>
+            <hr>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Titulo</th>
+                        <th>Precio</th>
+                        <th>Autor</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <form action="/actualizar/{{ book.id }}">
+                            {% csrf_token %}
+                            <td><input value="{{ book.id }}" type="text" class="form-control" disabled></td>
+                            <td><input value="{{ book.title }}" type="text" class="form-control" name="title"></td>
+                            <td><input value="{{ book.price }}" type="text" class="form-control" name="price"></td>
+                            <td><input value="{{ book.author }}" type="text" class="form-control" name="author"></td>
+                            <td><button type="submit" class="btn btn-success">Actualizar</button></td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+{% endblock %}
